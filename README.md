@@ -6,5 +6,7 @@ https://www.mql5.com/en/docs/python_metatrader5
 
 https://www.mql5.com/en/docs/onnx
 
+https://plotly.com/python/financial-charts/
+
 <img src="resources/wall_street_2.png" alt="" width=65%/>
 <img src="resources/wall_street.png" alt="" width=65%/>
