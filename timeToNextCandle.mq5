@@ -9,8 +9,8 @@ void OnStart()
    string timeFrame = StringSubstr(EnumToString(period), 7);
    long periodSec = PeriodSeconds(period);
    string text = "NEXT [" + timeFrame + "] CANDLE IN: ";
-   
    string value = "time_to_next_candle";
+   
    ObjectCreate(0,value,OBJ_LABEL,0,0,0);           
    ObjectSetInteger(0,value,OBJPROP_XDISTANCE,25);
    ObjectSetInteger(0,value,OBJPROP_YDISTANCE,25);
@@ -29,18 +29,36 @@ void OnStart()
       if (timeFrame == "M1")
       {
          long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
-         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + (string) diff;
+         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
          ObjectSetString(0,value,OBJPROP_TEXT,text);
          ChartRedraw(0);
       }
       if (timeFrame == "M5")
       {
          long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
-         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + (string) diff;
+         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
          ObjectSetString(0,value,OBJPROP_TEXT,text);
          ChartRedraw(0);
       }
-   }                                
+      if (timeFrame == "M15")
+      {
+         long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
+         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
+         ObjectSetString(0,value,OBJPROP_TEXT,text);
+         ChartRedraw(0);
+      }
+      if (timeFrame == "M30")
+      {
+         long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
+         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
+         ObjectSetString(0,value,OBJPROP_TEXT,text);
+         ChartRedraw(0);
+      }
+   }
    }
 
 //+------------------------------------------------------------------+
