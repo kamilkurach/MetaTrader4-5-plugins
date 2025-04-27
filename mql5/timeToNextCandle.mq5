@@ -5,9 +5,8 @@
 
 void OnStart()
    {
-   ENUM_TIMEFRAMES period = Period();
-   string timeFrame = StringSubstr(EnumToString(period), 7);
-   long periodSec = PeriodSeconds(period);
+   string timeFrame = StringSubstr(EnumToString(_Period), 7);
+   long periodSec = PeriodSeconds(_Period);
    string text = "NEXT [" + timeFrame + "] CANDLE IN: ";
    string value = "time_to_next_candle";
    
@@ -22,43 +21,47 @@ void OnStart()
    ObjectSetInteger(0,value,OBJPROP_SELECTABLE,false);
    ChartRedraw(0);
    
-   while(true) {
+   while(true) 
+      {
       datetime currentTime = TimeCurrent();
-      datetime candleOpenTime  = iTime(Symbol(),period,0);
+      datetime candleOpenTime  = iTime(Symbol(),_Period,0);
       
-      if (timeFrame == "M1")
-      {
-         long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
-         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
-         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
-         ObjectSetString(0,value,OBJPROP_TEXT,text);
-         ChartRedraw(0);
+      switch(_Period)
+         {
+         case PERIOD_M1:
+            {
+            long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
+            string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+            string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
+            ObjectSetString(0,value,OBJPROP_TEXT,text);
+            ChartRedraw(0);
+            }
+         case PERIOD_M5:
+            {
+            long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
+            string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+            string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
+            ObjectSetString(0,value,OBJPROP_TEXT,text);
+            ChartRedraw(0);
+            }
+         case PERIOD_M15:
+            {
+            long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
+            string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+            string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
+            ObjectSetString(0,value,OBJPROP_TEXT,text);
+            ChartRedraw(0);
+            }
+         case PERIOD_M30:
+            {
+            long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
+            string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
+            string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
+            ObjectSetString(0,value,OBJPROP_TEXT,text);
+            ChartRedraw(0);
+            }
+         }
       }
-      if (timeFrame == "M5")
-      {
-         long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
-         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
-         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
-         ObjectSetString(0,value,OBJPROP_TEXT,text);
-         ChartRedraw(0);
-      }
-      if (timeFrame == "M15")
-      {
-         long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
-         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
-         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
-         ObjectSetString(0,value,OBJPROP_TEXT,text);
-         ChartRedraw(0);
-      }
-      if (timeFrame == "M30")
-      {
-         long diff = periodSec - ((long) currentTime - (long) candleOpenTime);
-         string timer = TimeToString(diff, TIME_MINUTES | TIME_SECONDS);
-         string text = "NEXT [" + timeFrame + "] CANDLE IN: " + StringSubstr(timer, 3);
-         ObjectSetString(0,value,OBJPROP_TEXT,text);
-         ChartRedraw(0);
-      }
-   }
    }
 
 //+------------------------------------------------------------------+
