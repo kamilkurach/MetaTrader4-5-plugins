@@ -46,7 +46,8 @@ void OnStart()
             ObjectSetInteger(0,"Low_M15",OBJPROP_COLOR,clrChocolate);
             ObjectSetString(0,"Low_M15",OBJPROP_TEXT,"15M LOW: " + DoubleToString(low_M15, _Digits));
             
-            string text = "DIFF IN [" + timeFrame + "] HIGH and LOW: " + DoubleToString(diff, _Digits);
+            string text = "DIFF IN [" + timeFrame + "] HIGH and LOW: " + DoubleToString(diff, _Digits) +
+            " | DIFF IN [M15] H/L: " + DoubleToString(high_M15 - low_M15, _Digits);
             
             ObjectSetString(0,value,OBJPROP_TEXT,text);
             ChartRedraw(0);
