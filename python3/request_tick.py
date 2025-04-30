@@ -10,6 +10,8 @@ if not mt5.initialize():
    mt5.shutdown()
 
 try:
+   prev_bid = None
+   prev_ask = None
    while True:
       spread = mt5.symbol_info(SYMBOL).spread
       digits = mt5.symbol_info(SYMBOL).digits
@@ -20,7 +22,8 @@ try:
       raw_ask = mt5.symbol_info_tick(SYMBOL)[2]
       bid = round(raw_bid, digits)
       ask = round(raw_ask, digits)
-    
+      
+      
       result = "TIME: {0} DIGITS: {4} SWAP_LONG: {5} SWAP_SHORT: {6} BID: {1} ASK: {2} SPREAD: {3}".format(
          raw_time,
          bid,
@@ -29,9 +32,11 @@ try:
          digits,
          swap_long,
          swap_short)
-    
-      print(result)
-      sleep(SLEEP_TIME)
+         
+      if prev_bid != bid or prev_ask != ask:
+         print(result)
+         prev_bid = bid
+         prev_ask = ask
     
 except KeyboardInterrupt:
    mt5.shutdown()
