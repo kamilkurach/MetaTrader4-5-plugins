@@ -14,6 +14,8 @@ https://www.mql5.com/en/docs/python_metatrader5
 
 https://plotly.com/python/financial-charts/
 
+https://dash.plotly.com/
+
 ## Java:
 
 https://www.dukascopy.com/swiss/english/forex/jforex/
