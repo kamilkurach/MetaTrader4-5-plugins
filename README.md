@@ -16,6 +16,8 @@ https://plotly.com/python/financial-charts/
 
 https://dash.plotly.com/
 
+https://github.com/mckinsey/qbstyles
+
 ## Java:
 
 https://www.dukascopy.com/swiss/english/forex/jforex/
