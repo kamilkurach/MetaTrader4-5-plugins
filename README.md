@@ -18,9 +18,15 @@ https://dash.plotly.com/
 
 https://github.com/mckinsey/qbstyles
 
-## Java:
+# Trading APIs:
+
+## Dukascopy (Java):
 
 https://www.dukascopy.com/swiss/english/forex/jforex/
+
+## IBKR (multiple languages):
+
+https://www.interactivebrokers.com/campus/ibkr-api-page/getting-started/
 
 <img src="resources/wall_street_2.png" alt="" width=65%/>
 <img src="resources/wall_street.png" alt="" width=65%/>
